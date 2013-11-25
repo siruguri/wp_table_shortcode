@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Table Shortcode
+ * Plugin Name: WP Table Shortcode
  * Plugin URI: https://github.com/siruguri/wp_table_shortcode
  * Description: Adds a [table] shortcode that generates a spreadsheet (uses theme's CSS)
  * Version: 0.1
