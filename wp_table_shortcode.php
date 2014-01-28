@@ -26,13 +26,12 @@ EODOC;
 
   foreach ($rows as $line) {
 
+    // Ignore the plain <p> that Wordpress/TinyMCE adds to lines
     if(preg_match("#^\s*<(/)?p>\s*$#", $line)) {
-
       continue;
     }
 
-    $cells = preg_split("/\s+/", $line);
-
+    $cells = preg_split("/\s*\|\s*/", $line);
 
     // Start initializing the string that will generate this row
     $row_string = "";
@@ -45,6 +44,10 @@ EODOC;
 
     foreach ($cells as $value) {
       $value = preg_replace("#</?p>#", "", $value);
+
+      // Because we are splitting on the pipe symbol, there might be leading whitespace
+
+      $value = preg_replace("/^\s*/", "", $value);
 
       $row_string .= '<td id="cellvalue">'. $value . '</td>';
     }
